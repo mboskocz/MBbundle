@@ -18,7 +18,7 @@ PVtype <- toupper(PVtype)
 PVmeanlist <- c() #list with all means
 for (var in sqv){ #itterate based on the number of PV
     PVtext <- paste("PV",var,PVtype,sep="")
-    meanPV <- weighted.mean(data[,c(PVtext)],data[,c(weight)])
+    meanPV <- stats::weighted.mean(data[,c(PVtext)],data[,c(weight)])
     PVmeanlist <- c(PVmeanlist,meanPV)   
     } 
 

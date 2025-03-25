@@ -19,11 +19,11 @@ CNT.wtd.mean <- function (data, varMean, CNTlabel="CNT",weight="W_FSTUWT",showCI
 `%>%` <- magrittr::`%>%`
 repwtlist <- replicaWTlistfc(repwt)
 data2 <- data[,c(CNTlabel,varMean,weight,repwtlist)] #simplify
-data2 <- na.omit(data2) #get rid of NA answers
+data2 <- stats::na.omit(data2) #get rid of NA answers
 cntlist <- sort(unique(data2[,c(CNTlabel)]))
 result = data.frame(matrix(nrow = length(cntlist), ncol = 4))
 colnames(result) <- c("CNT", "wtd_mean", "wtd_SD","N")
-conInt <- qnorm((1-alpha)/2)
+conInt <- stats::qnorm((1-alpha)/2)
 textconInt <- "" #if conInt not shown this is empty
 if (showCI){
 textconInt <- paste("", alpha*100, "% confidence intervals.",sep="")
@@ -32,7 +32,7 @@ counter <- 1
 for (var in cntlist){
 	dfhelp <- data2 %>% dplyr::filter (get(CNTlabel) == var)
 	result[counter,1] <- var
-	result[counter,2] <- weighted.mean(dfhelp[,c(varMean)],dfhelp[,c(weight)])
+	result[counter,2] <- stats::weighted.mean(dfhelp[,c(varMean)],dfhelp[,c(weight)])
 	result[counter,4] <- length(dfhelp[,c(varMean)])
     result[counter,3] <- wtd.std.error(dfhelp,varMean,weight,repwt)$std_error*sqrt(result[counter,4])
 	if (showCI){ 

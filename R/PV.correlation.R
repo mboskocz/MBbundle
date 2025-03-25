@@ -21,7 +21,7 @@ corvarList <- c()
 sqv <- seq(1,PVnumber,by=1)
 for (var in sqv){ #calculate correlation and variance for each Plausible Value
     PVtext <- paste("PV",var,PVtype,sep="")
-    testPV <- cor.test(data[,c(cor1)], data[,c(PVtext)])
+    testPV <- stats::cor.test(data[,c(cor1)], data[,c(PVtext)])
     corList <- c(corList,testPV$estimate)
     corvar <- ((1-(testPV$estimate)^2)^2)/(testPV$parameter+2-1) #(1-r^2)^2/(n-1)
     corvarList <- c(corvarList,corvar)
@@ -42,7 +42,7 @@ degFr <- 80 #degrees of freedom to get the v value needed for final confidence i
 valueV <- 1/(((fm^2)/9)+((1-fm)^2/degFr))
 
 
-finalCI <- abs(qt(.025,valueV))*sqrt(finalVar)
+finalCI <- abs(stats::qt(.025,valueV))*sqrt(finalVar)
 
 lowCI <- corAVG-finalCI
 highCI <- corAVG+finalCI

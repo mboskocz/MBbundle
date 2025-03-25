@@ -16,11 +16,11 @@
 #' @export
 wtd.std.error <- function (data,varS,finalwt="W_FSTUWT",repwt="W_FSTR"){
 replicaWTlist <- replicaWTlistfc(repwt)
-meanfinal <- weighted.mean(data[,c(varS)],data[,c(finalwt)])
+meanfinal <- stats::weighted.mean(data[,c(varS)],data[,c(finalwt)])
 replicameanlist <- c()
 sqv <- seq(1,80,by=1)
 for (var in sqv){ #compute mean for each replicate weight
-    meanrep <- weighted.mean(data[,c(varS)],data[,c(replicaWTlist[var])])
+    meanrep <- stats::weighted.mean(data[,c(varS)],data[,c(replicaWTlist[var])])
     replicameanlist <- c(replicameanlist,meanrep)
     }
 

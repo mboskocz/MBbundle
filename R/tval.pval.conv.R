@@ -9,11 +9,11 @@
 #' @export
 tval.pval.conv <- function(t_value, df=100000, tail = "two.sided") { #this function converts tvalue to pvalue
   if (tail == "two.sided") {
-    p_value <- 2 * (1 - pt(abs(t_value), df))
+    p_value <- 2 * (1 - stats::pt(abs(t_value), df))
   } else if (tail == "greater") {
-    p_value <- 1 - pt(t_value, df)
+    p_value <- 1 - stats::pt(t_value, df)
   } else if (tail == "less") {
-    p_value <- pt(t_value, df)
+    p_value <- stats::pt(t_value, df)
   } else {
     stop("Invalid tail argument. Use 'two.sided', 'greater', or 'less'.")
   }
