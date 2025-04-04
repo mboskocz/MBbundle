@@ -7,7 +7,7 @@
 PV.wtd.mean(data, PVtype, weight = "W_FSTUWT", PVnumber = 10)
 }
 \arguments{
-\item{data}{Here input the dataframe which contains Plausible Values and weights.}
+\item{data}{Here input the data frame which contains Plausible Values and weights.}
 
 \item{PVtype}{String which contains information on which Plausible Values you want to use (e.g. math, scie...).}
 

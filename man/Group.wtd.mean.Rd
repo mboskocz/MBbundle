@@ -15,11 +15,11 @@ Group.wtd.mean(
 )
 }
 \arguments{
-\item{data}{Here input the dataframe which contains the variable for which you need the country means, final student weight, and replicate weights.}
+\item{data}{Here input the data frame which contains the variable for which you need the country means, final student weight, and replicate weights.}
 
 \item{varMean}{String containing the name of the variable for which you need to compute the country means.}
 
-\item{Grouplabel}{String containg the name of the varaible with country labels/names. Defaults to CNT.}
+\item{Grouplabel}{String containing the name of the variable with country labels/names. Defaults to CNT.}
 
 \item{weight}{String containing the name of the final student weight variable. Defaults to W_FSTUWT.}
 
@@ -30,12 +30,12 @@ Group.wtd.mean(
 \item{repwt}{String containing the prefix of the replicate weights variables. Defaults to W_FSTR.}
 }
 \value{
-Dataframe which contains a list of countries each with a weighted mean, weighted standard error, number of observations, and optionally the confidence intervals.
+Data frame which contains a list of countries each with a weighted mean, weighted standard error, number of observations, and optionally the confidence intervals.
 }
 \description{
 This function computes the weighted means of a variable for all unique
-countries in the dataframe and returns a dataframe with the
+countries in the data frame and returns a data frame with the
 weighted means, weighted standard errors,
-number of observations, and optionaly also provides confidence intervals grouped by a variable.
+number of observations, and optionally also provides confidence intervals grouped by a variable.
 The function assumes that the variable varMean does not contain NA codes.
 }

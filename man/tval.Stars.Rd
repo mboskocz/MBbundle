@@ -9,15 +9,15 @@ tval.Stars(value, tval, decplaces = 3)
 \arguments{
 \item{value}{Number containing the value (e.g. estimate).}
 
-\item{tval}{Number containg the t-value associated with value number.}
+\item{tval}{Number containing the t-value associated with value number.}
 
 \item{decplaces}{Number which represents the rounding of numbers to a specific decimal place. Defaults to 3.}
 }
 \value{
-String with the value input and stars assigned pased on significance level, rounded to the specified number of decimal places.
+String with the value input and stars assigned passed on significance level, rounded to the specified number of decimal places.
 }
 \description{
-This funtion takes in a number and its corresponding t-value.
+This function takes in a number and its corresponding t-value.
 Returns a number with attached stars based on significance level.
 p < 0.001 ***, p < 0.01 **, p < 0.05 *, p < 0.1 . or without stars if the p >= 0.1.
 It is used, for example, when you run a model which gives you estimate together

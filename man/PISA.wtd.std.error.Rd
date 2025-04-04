@@ -7,7 +7,7 @@
 PISA.wtd.std.error(data, varS, finalwt = "W_FSTUWT", repwt = "W_FSTR")
 }
 \arguments{
-\item{data}{Here input the dataframe which contains the variable for which you need standard error, final student weight, and replicate weights.}
+\item{data}{Here input the data frame which contains the variable for which you need standard error, final student weight, and replicate weights.}
 
 \item{varS}{String containing the name of the variable for which you need to compute the standard error.}
 

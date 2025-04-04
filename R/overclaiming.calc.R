@@ -1,7 +1,7 @@
 #' Overclaiming Calculations Function
 #'
-#' This function takes a dataframe and computes necessary calculation for overclaiming analysis.
-#' After calculation it returns an appended dataframe with overclaiming variables.
+#' This function takes a data frame and computes necessary calculation for overclaiming analysis.
+#' After calculation it returns an appended data frame with overclaiming variables.
 #' It creates dummy variables, variables for computation of overclaiming indices
 #' Proportion of Hits (PH), Proportion of False Alarms (PFA), Index of Accuracy (IA),
 #' and Index of Exaggeration (IE).
@@ -9,18 +9,14 @@
 #' the answer codes are in a series (e.g., 1, 2, 3, 4, 5). It also assumes that
 #' 1 represents "never heard" answer and 5 being the "most familiar" answer.
 #'
-#' @param data Here input the dataframe which contains all overclaiming items.
+#' @param data Here input the data frame which contains all overclaiming items.
 #' @param existIt Vector containing strings with variable names for existing items.
-#' @param nonexistIt Vector containing strings with variable names for nonexisting items.
+#' @param nonexistIt Vector containing strings with variable names for nonexistent items.
 #' @param scaleStart Number which represents the code for the start of the answering scale (e.g., "Never heard" coded as 1). Defaults to 1.
 #' @param scaleStop Number which represents the code for the end of the answering scale (e.g., "Know it well" coded as 5). Defaults to 5.
-#' @return Returns appended inputed dataframe which now contains variables needed for computation of overclaiming indices.
+#' @return Returns appended imputed data frame which now contains variables needed for computation of overclaiming indices.
 #' @export
 overclaiming.calc <- function (data,existIt,nonexistIt,scaleStart=1,scaleStop=5) {
-#existIt is a vector of variable names with existing concepts, nonexistIt is a vector of variable names with nonexisting concepts, scaleStart is the number with the first answer value, scaleStop is the number with the last answer value
-#scaleStart = never heard, scaleStop = know it well
-#assumes that 1 is "never heard"
-#returns a dataframe with new columns with calculated OCT indices
 
 #PISA 2012 
 #exist <- c("ST62Q01","ST62Q02","ST62Q03","ST62Q06", "ST62Q07", "ST62Q08","ST62Q09", "ST62Q10", "ST62Q12", "ST62Q15", "ST62Q16", "ST62Q17", "ST62Q19")
@@ -36,11 +32,11 @@ nmbrOptions <- seq(scaleStop,scaleStart+1,by=-1)
 
 #dummies for later easy calculation of indices, WIP for usage with other than 5-point scales
 listExist <- c()
-result = data.frame(matrix(nrow = length(existIt), ncol = 0)) #helper dataframe for existing items - here we will store concept_e1_heardXYZ variables for later use in calculation
-resultNE = data.frame(matrix(nrow = length(nonexistIt), ncol = 0)) #helper dataframe for existing items - here we will store concept_n1_heardXYZ variables for later use in calculation
+result = data.frame(matrix(nrow = length(existIt), ncol = 0)) #helper data frame for existing items - here we will store concept_e1_heardXYZ variables for later use in calculation
+resultNE = data.frame(matrix(nrow = length(nonexistIt), ncol = 0)) #helper data frame for existing items - here we will store concept_n1_heardXYZ variables for later use in calculation
 helpme <- c() 
-listExist_list <- c() #here we store column names for result dataframe
-listNonexist_list <- c() #here we store column names for resultNE dataframe
+listExist_list <- c() #here we store column names for result data frame
+listNonexist_list <- c() #here we store column names for resultNE data frame
 sznnmb <- c() #here we store the individual endings of variables (2345,345,45...)
 counter <- 1
 for (var in nmbrOptions) {

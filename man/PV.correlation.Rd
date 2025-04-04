@@ -7,7 +7,7 @@
 PV.correlation(data, cor1, PVtype, PVnumber = 10)
 }
 \arguments{
-\item{data}{Here input the dataframe which contains the variable for which you need the correlation and Plausible Values.}
+\item{data}{Here input the data frame which contains the variable for which you need the correlation and Plausible Values.}
 
 \item{cor1}{String which contains the variable name for which you want the correlation value.}
 

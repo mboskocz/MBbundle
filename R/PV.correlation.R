@@ -5,7 +5,7 @@
 #' This function assumes that Plausible Values are labeled as PVXSUBJECT (e.g. PV1MATH, PV2SCIE...).
 #' It also assumes that variable does not contain NA codes.
 #'
-#' @param data Here input the dataframe which contains the variable for which you need the correlation and Plausible Values.
+#' @param data Here input the data frame which contains the variable for which you need the correlation and Plausible Values.
 #' @param cor1 String which contains the variable name for which you want the correlation value.
 #' @param PVtype String which contains information on which Plausible Values you want to use (e.g. math, scie...). 
 #' @param PVnumber Number which represents the number of Plausible Values. Defaults to 10.

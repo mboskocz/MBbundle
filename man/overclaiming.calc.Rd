@@ -7,22 +7,22 @@
 overclaiming.calc(data, existIt, nonexistIt, scaleStart = 1, scaleStop = 5)
 }
 \arguments{
-\item{data}{Here input the dataframe which contains all overclaiming items.}
+\item{data}{Here input the data frame which contains all overclaiming items.}
 
 \item{existIt}{Vector containing strings with variable names for existing items.}
 
-\item{nonexistIt}{Vector containing strings with variable names for nonexisting items.}
+\item{nonexistIt}{Vector containing strings with variable names for nonexistent items.}
 
 \item{scaleStart}{Number which represents the code for the start of the answering scale (e.g., "Never heard" coded as 1). Defaults to 1.}
 
 \item{scaleStop}{Number which represents the code for the end of the answering scale (e.g., "Know it well" coded as 5). Defaults to 5.}
 }
 \value{
-Returns appended inputed dataframe which now contains variables needed for computation of overclaiming indices.
+Returns appended imputed data frame which now contains variables needed for computation of overclaiming indices.
 }
 \description{
-This function takes a dataframe and computes necessary calculation for overclaiming analysis.
-After calculation it returns an appended dataframe with overclaiming variables.
+This function takes a data frame and computes necessary calculation for overclaiming analysis.
+After calculation it returns an appended data frame with overclaiming variables.
 It creates dummy variables, variables for computation of overclaiming indices
 Proportion of Hits (PH), Proportion of False Alarms (PFA), Index of Accuracy (IA),
 and Index of Exaggeration (IE).

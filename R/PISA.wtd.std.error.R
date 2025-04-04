@@ -8,7 +8,7 @@
 #' Then the sampling variance and standard error are computed.
 #' The function assumes that the variable varS does not contain NA codes.
 #'
-#' @param data Here input the dataframe which contains the variable for which you need standard error, final student weight, and replicate weights.
+#' @param data Here input the data frame which contains the variable for which you need standard error, final student weight, and replicate weights.
 #' @param varS String containing the name of the variable for which you need to compute the standard error.
 #' @param finalwt String containing the name of the final student weight variable. Defaults to W_FSTUWT.
 #' @param repwt String containing the prefix of the replicate weights variables. Defaults to W_FSTR.

@@ -13,7 +13,7 @@ Group.PV.wtd.mean(
 )
 }
 \arguments{
-\item{data}{Here input the dataframe which contains Plausible Values and weights.}
+\item{data}{Here input the data frame which contains Plausible Values and weights.}
 
 \item{PVtype}{String which contains information on which Plausible Values you want to use (e.g. math, scie...).}
 
@@ -21,14 +21,14 @@ Group.PV.wtd.mean(
 
 \item{PVnumber}{Number which represents the number of Plausible Values. Defaults to 10.}
 
-\item{GroupLabel}{String containg the name of the varaible that will serve as a grouping variable (e.g., CNT, gender...). Defaults to CNT.}
+\item{GroupLabel}{String containing the name of the variable that will serve as a grouping variable (e.g., CNT, gender...). Defaults to CNT.}
 }
 \value{
-Dataframe which contains a list of countries each with a weighted score and number of observations.
+Data frame which contains a list of countries each with a weighted score and number of observations.
 }
 \description{
 This function computes the weighted mean of PISA scores which are computed
-based on all Plausible Values for each unique country and returns a dataframe with
+based on all Plausible Values for each unique country and returns a data frame with
 weighted scores for each country and number of observations grouped by a variable.
 This function assumes that Plausible Values are labeled as PVXSUBJECT (e.g. PV1MATH, PV2SCIE...).
 }
