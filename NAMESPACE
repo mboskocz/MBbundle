@@ -2,10 +2,10 @@
 
 export(Group.PV.wtd.mean)
 export(Group.wtd.mean)
+export(PISA.wtd.std.error)
 export(PV.correlation)
 export(PV.wtd.mean)
 export(overclaiming.calc)
 export(replicaWTlistfc)
 export(tval.Stars)
 export(tval.pval.conv)
-export(wtd.std.error)
