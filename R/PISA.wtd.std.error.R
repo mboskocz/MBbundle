@@ -25,10 +25,10 @@ for (var in sqv){ #compute mean for each replicate weight
     }
 
 squaresum <- 0
-for (var in sqv){ #compute sum of sqaured differences replica mean - final mean
+for (var in sqv){ #compute sum of squared differences replica mean - final mean
     squaresum <- squaresum + (replicameanlist[var]-meanfinal)^2
     }
-samplingVariance <- (1/20)*squaresum #sampling varaince is the sum of square differences divided by 20 as per PISA data analysis manual
+samplingVariance <- (1/20)*squaresum #sampling variance is the sum of square differences divided by 20 as per PISA data analysis manual
 std_error <- sqrt(samplingVariance) #standard error is the square root of sampling variance
 return(list(std_error=std_error,sampVar=samplingVariance))
 }

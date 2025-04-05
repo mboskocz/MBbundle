@@ -4,7 +4,7 @@
 \alias{PV.correlation}
 \title{Correlation with PISA Score Function}
 \usage{
-PV.correlation(data, cor1, PVtype, PVnumber = 10)
+PV.correlation(data, cor1, PVtype, PVnumber = 10, minObserv = 40)
 }
 \arguments{
 \item{data}{Here input the data frame which contains the variable for which you need the correlation and Plausible Values.}
@@ -14,6 +14,8 @@ PV.correlation(data, cor1, PVtype, PVnumber = 10)
 \item{PVtype}{String which contains information on which Plausible Values you want to use (e.g. math, scie...).}
 
 \item{PVnumber}{Number which represents the number of Plausible Values. Defaults to 10.}
+
+\item{minObserv}{Number. Represents the minimal number of observations required for the correlation to run. If not reached, returns NA. Defaults to 40.}
 }
 \value{
 List which contains the correlation value, and confidence intervals.
