@@ -2,6 +2,7 @@
 
 export(Group.PV.wtd.mean)
 export(Group.wtd.mean)
+export(PISA.wt.multilvl.transform)
 export(PISA.wtd.std.error)
 export(PV.correlation)
 export(PV.wtd.mean)
