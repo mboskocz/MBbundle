@@ -7,7 +7,7 @@
 #'
 #' @param data Here input the data frame which contains the variable for which you need the correlation and Plausible Values.
 #' @param cor1 String which contains the variable name for which you want the correlation value.
-#' @param PVtype String which contains information on which Plausible Values you want to use (e.g. math, scie...). 
+#' @param PVtype String which contains information on which Plausible Values you want to use – the variable ending (e.g. math, scie, read...). 
 #' @param PVnumber Number which represents the number of Plausible Values. Defaults to 10.
 #' @param minObserv Number. Represents the minimal number of observations required for the correlation to run. If not reached, returns NA. Defaults to 40.
 #' @return List which contains the correlation value, and confidence intervals.
@@ -50,6 +50,6 @@ PV.correlation <- function(data,cor1,PVtype,PVnumber=10,minObserv=40){
     
     return(list(corVal=as.numeric(corAVG),lowCI=as.numeric(lowCI),highCI=as.numeric(highCI)))
   } else {
-    return("NA")
+    return(list(corVal=NA,lowCI=NA,highCI=NA))
   }
 }

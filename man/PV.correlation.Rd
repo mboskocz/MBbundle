@@ -11,7 +11,7 @@ PV.correlation(data, cor1, PVtype, PVnumber = 10, minObserv = 40)
 
 \item{cor1}{String which contains the variable name for which you want the correlation value.}
 
-\item{PVtype}{String which contains information on which Plausible Values you want to use (e.g. math, scie...).}
+\item{PVtype}{String which contains information on which Plausible Values you want to use – the variable ending (e.g. math, scie, read...).}
 
 \item{PVnumber}{Number which represents the number of Plausible Values. Defaults to 10.}
 
