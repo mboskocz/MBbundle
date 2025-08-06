@@ -72,7 +72,7 @@ RT.mowin.correlation <- function(data,timeVarLabel,cor1,cor2=NULL,PVtype=NULL,ti
     uniquegroups <- sort(unique(data[,c(group)])) #unique labels are in the group variable
     numbergroups <- length(uniquegroups) #how many of them are there
     result = data.frame(matrix(nrow = length(helpme), ncol =1+4*numbergroups))
-    colnames(result) <- c("timeInt","corVal","lowCI","highCI","N") #timeInt shows the time interval size, >/< indicates which number is inclusive in the time interval
+    colnames(result)[1] <- c("timeInt") #timeInt shows the time interval size, >/< indicates which number is inclusive in the time interval
     counter <- 2
     for (val in uniquegroups){ #
      colnames(result)[counter] <- c(paste0("corVal_",val))
