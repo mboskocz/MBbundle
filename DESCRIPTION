@@ -1,6 +1,6 @@
 Package: MBbundle
 Title: Martin Bosko's Bundle of Useful Functions
-Version: 0.0.0.9003
+Version: 0.0.0.9005
 Authors@R: 
     person("Martin", "Bosko", , "mboskocz@google.com", role = c("aut", "cre"),comment=c(ORCID="0000-0002-1723-9523"))
 Description: Bundle of fucntions useful from cross-country analyses of mainly OECD PISA data.
