@@ -17,7 +17,8 @@ RT.mowin.correlation(
   windowShift = 100,
   endInclusive = TRUE,
   PVnumber = 10,
-  minObserv = 40
+  minObserv = 40,
+  group = NULL
 )
 }
 \arguments{
@@ -46,6 +47,8 @@ RT.mowin.correlation(
 \item{PVnumber}{Number which represents the number of Plausible Values. Defaults to 10.}
 
 \item{minObserv}{Number. Represents the minimal number of observations required for the correlation to run. If not reached, returns NA. Defaults to 40.}
+
+\item{group}{String. The name of the variable for grouping. If not NULL, the function will split data sets into subgroups based on the group variable. Resulting data frame is bigger with suffix "_X" where X is the label of the specific group in the data. When NULL, the function performs no grouping. Defaults to NULL.}
 }
 \value{
 Data frame which contains the correlation value and confidence intervals for each investigate time interval. First column indicates the investigated time interval. >/< indicates which number is inclusive in the time interval
@@ -62,4 +65,5 @@ This function performs the analysis in individual windows and provides you
 with a table with a result for each investigated time interval.
 This function assumes that Plausible Values are labeled as PVXSUBJECT (e.g. PV1MATH, PV2SCIE...).
 It also assumes that variable does not contain NA codes. Predefined values are in milliseconds.
+Using the "group" parameter, you can split the data set based on groups in the provided column.
 }
