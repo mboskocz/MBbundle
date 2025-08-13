@@ -7,7 +7,8 @@
 #' and Index of Exaggeration (IE).
 #' This function does not assume absence of NA codes. It, however, assumes that 
 #' the answer codes are in a series (e.g., 1, 2, 3, 4, 5). It also assumes that
-#' 1 represents "never heard" answer and 5 being the "most familiar" answer.
+#' 1 represents "never heard" answer and 5 being the "most familiar" answer. Further,
+#' it assumes that respondents without answers to any OCT item are excluded.
 #'
 #' @param data Here input the data frame which contains all overclaiming items.
 #' @param existIt Vector containing strings with variable names for existing items.
@@ -33,7 +34,7 @@ nmbrOptions <- seq(scaleStop,scaleStart+1,by=-1)
 #dummies for later easy calculation of indices, WIP for usage with other than 5-point scales
 listExist <- c()
 result = data.frame(matrix(nrow = length(existIt), ncol = 0)) #helper data frame for existing items - here we will store concept_e1_heardXYZ variables for later use in calculation
-resultNE = data.frame(matrix(nrow = length(nonexistIt), ncol = 0)) #helper data frame for existing items - here we will store concept_n1_heardXYZ variables for later use in calculation
+resultNE = data.frame(matrix(nrow = length(nonexistIt), ncol = 0)) #helper data frame for nonexisting items - here we will store concept_n1_heardXYZ variables for later use in calculation
 helpme <- c() 
 listExist_list <- c() #here we store column names for result data frame
 listNonexist_list <- c() #here we store column names for resultNE data frame
@@ -88,6 +89,8 @@ for (var in nmbrNonex){ #ready concept_e variables
     counter2 <- counter2+1
     }
 
+allitems <- c(existIt,nonexistIt)
+data$Answered_OCT <- rowSums(!is.na(data[, allitems])) #calculates how many of the items the respondent provided an answer for
     
 counter <- 1
 PH_list <- c() #helper list which contains names of PH_XYZ options for later
@@ -95,10 +98,10 @@ PFA_list <- c() #same but PFA
 for (var2 in sznnmb){ #here we calculate PH and PFA indices for each heardXYZ option
     helpme <- paste("PH_",var2,sep="")
     PH_list <- c(PH_list,helpme)
-    data[,c(helpme)] = rowSums(data[,result[,c(listExist_list[counter])]])/length(existIt)*100 #result gives list of variable names for individual heardXYZ options so that we can easily sum all of the existing concepts
+    data[,c(helpme)] = rowSums(data[,result[,c(listExist_list[counter])]],na.rm = TRUE)/(data$Answered_OCT)*100 #result gives list of variable names for individual heardXYZ options so that we can easily sum all of the existing concepts
     helpme <- paste("PFA_",var2,sep="")
     PFA_list <- c(PFA_list,helpme)
-    data[,c(helpme)] = rowSums(data[,resultNE[,c(listNonexist_list[counter])]])/length(nonexistIt)*100   #same but for nonexistent items
+    data[,c(helpme)] = rowSums(data[,resultNE[,c(listNonexist_list[counter])]],na.rm = TRUE)/(data$Answered_OCT)*100   #same but for nonexistent items
     counter <- counter+1
     }
 
