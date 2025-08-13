@@ -28,5 +28,6 @@ Proportion of Hits (PH), Proportion of False Alarms (PFA), Index of Accuracy (IA
 and Index of Exaggeration (IE).
 This function does not assume absence of NA codes. It, however, assumes that
 the answer codes are in a series (e.g., 1, 2, 3, 4, 5). It also assumes that
-1 represents "never heard" answer and 5 being the "most familiar" answer.
+1 represents "never heard" answer and 5 being the "most familiar" answer. Further,
+it assumes that respondents without answers to any OCT item are excluded.
 }
