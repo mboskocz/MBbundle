@@ -13,8 +13,12 @@ lavaanFit.indicators.table(fitMeasures)
 Data frame with the values of fit indicators and their evaluation
 }
 \description{
-This function evaluates the result of lavaan fitMeasures function based on Papi (2010)
+This function evaluates the result of lavaan fitMeasures function based on Papi (2010).
+Additionally, Awang(2015) presents slightly less strict level of acceptance for RMSEA and GFI,
+which is also reflected with (A) in the brackets at the relevant measures.
 }
 \references{
+Awang, Z. (2015). \emph{SEM Made Simple: A Gentle Approach to Learning Structural Equation Modeling}. MPWS Publisher.
+
 Papi, M. (2010). The L2 motivational self system, L2 anxiety, and motivated behavior: A structural equation modeling approach. \emph{System, 38}(3), 467–479. \doi{10.1016/j.system.2010.06.011}
 }
