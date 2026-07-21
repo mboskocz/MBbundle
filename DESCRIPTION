@@ -1,14 +1,15 @@
 Package: MBbundle
 Title: Martin Bosko's Bundle of Useful Functions
-Version: 0.0.0.9007
+Version: 0.0.0.9008
 Authors@R: 
     person("Martin", "Bosko", , "mboskocz@google.com", role = c("aut", "cre"),comment=c(ORCID="0000-0002-1723-9523"))
 Description: Bundle of fucntions useful from cross-country analyses of mainly OECD PISA data.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.1
 Imports:
     dplyr (>= 1.1.2),
     magrittr,
-    stats
+    stats,
+    survey
+Config/roxygen2/version: 8.0.0
