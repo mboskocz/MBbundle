@@ -20,7 +20,6 @@
 #'   \item{Accepted level}{The threshold used for evaluation.}
 #'   \item{Evaluation}{String indicating if the fit is "Satisfactory", "Satisfactory (A)", "Poor", or `NA`.}
 #' 
-#' @author [Tvé Jméno/Your Name]
 #' 
 #' @seealso \code{\link[lavaan]{fitMeasures}}
 #' 

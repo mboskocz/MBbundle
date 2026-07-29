@@ -2,23 +2,61 @@
 % Please edit documentation in R/lavaanFit.indicators.table.R
 \name{lavaanFit.indicators.table}
 \alias{lavaanFit.indicators.table}
-\title{Table of Fit Indicators of lavaan Models Function}
+\title{Table of Fit Indicators of lavaan Models}
 \usage{
 lavaanFit.indicators.table(fitMeasures)
 }
 \arguments{
-\item{fitMeasures}{Here input the outcome of the lavaan::fitMeasures function}
+\item{fitMeasures}{A named numeric vector or a list containing the outcome of the
+\code{\link[lavaan]{fitMeasures}} function.}
 }
 \value{
-Data frame with the values of fit indicators and their evaluation
+A \code{data.frame} with 4 columns:
+\item{Index}{The name of the fit index.}
+\item{Current level}{The extracted numeric value from the lavaan model.}
+\item{Accepted level}{The threshold used for evaluation.}
+\item{Evaluation}{String indicating if the fit is "Satisfactory", "Satisfactory (A)", "Poor", or \code{NA}.}
 }
 \description{
-This function evaluates the result of lavaan fitMeasures function based on Papi (2010).
-Additionally, Awang(2015) presents slightly less strict level of acceptance for RMSEA and GFI,
-which is also reflected with (A) in the brackets at the relevant measures.
+This function evaluates the result of the \code{lavaan::fitMeasures()} function based on Papi (2010).
+Additionally, Awang (2015) presents a slightly less strict level of acceptance for RMSEA and GFI,
+which is reflected with "(A)" in the evaluation column.
+}
+\details{
+The function extracts common fit indices (Chi-square, GFI, AGFI, NFI, NNFI, CFI, RMSEA, SRMR,
+RFI, TLI, PNFI, IFI) and compares them against established thresholds.
+If a specific fit index is missing from the input (e.g., when a different estimator is used
+in lavaan), the function safely assigns an \code{NA} to both the value and the evaluation
+instead of throwing an error.
+}
+\examples{
+\donttest{
+# Load the lavaan package
+library(lavaan)
+
+# 1. Define a simple Confirmatory Factor Analysis (CFA) model
+HS.model <- ' visual  =~ x1 + x2 + x3
+              textual =~ x4 + x5 + x6
+              speed   =~ x7 + x8 + x9 '
+
+# 2. Fit the model using the built-in HolzingerSwineford1939 dataset
+fit <- cfa(HS.model, data = HolzingerSwineford1939)
+
+# 3. Extract the fit measures
+my_fit_measures <- fitMeasures(fit)
+
+# 4. Run the evaluation function
+eval_table <- lavaanFit.indicators.table(my_fit_measures)
+
+# Print the resulting table
+print(eval_table)
+}
 }
 \references{
 Awang, Z. (2015). \emph{SEM Made Simple: A Gentle Approach to Learning Structural Equation Modeling}. MPWS Publisher.
 
 Papi, M. (2010). The L2 motivational self system, L2 anxiety, and motivated behavior: A structural equation modeling approach. \emph{System, 38}(3), 467–479. \doi{10.1016/j.system.2010.06.011}
+}
+\seealso{
+\code{\link[lavaan]{fitMeasures}}
 }
